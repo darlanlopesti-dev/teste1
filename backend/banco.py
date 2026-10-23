@@ -18,3 +18,7 @@ class BancoService:
             return False  # Conta já existe
         self.contas[numero] = Conta(numero)
         return True
+    def consultar_saldo(self, numero: str) -> float:
+        if numero not in self.contas:
+            raise ValueError("Conta não encontrada.")
+        return self.contas[numero].saldo
